@@ -16,7 +16,8 @@
       },
       "fs": {
         "all": true
-      }
+      },
+      "all": true
     },
     "bundle": {
       "active": true,

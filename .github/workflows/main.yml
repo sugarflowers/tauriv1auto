@@ -9,7 +9,7 @@ jobs:
   tauri-build:
     strategy:
       matrix:
-        platform: [windows-latest, macos-latest]
+        platform: [windows-latest, macos-latest]   # ← Linux を省略
 
     runs-on: ${{ matrix.platform }}
 
@@ -29,16 +29,22 @@ jobs:
         run: npm install
 
       # -----------------------------
-      # アイコン生成（追加）
+      # アイコン生成（公式 CLI）
       # -----------------------------
+      - name: Install Tauri CLI
+        run: npm install --save-dev @tauri-apps/cli
+
       - name: Generate Tauri icons
         run: npx tauri icon ./icon.png
 
+      # -----------------------------
+      # ビルド
+      # -----------------------------
       - name: Build Tauri app
         run: npm run tauri build
 
       # -----------------------------
-      # ① 従来のまとめ artifacts（bundle 全体）
+      # ① まとめ artifacts（bundle 全体）
       # -----------------------------
       - name: Upload bundle (all files)
         uses: actions/upload-artifact@v4

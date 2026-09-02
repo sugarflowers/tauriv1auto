@@ -25,30 +25,18 @@ jobs:
         with:
           node-version: 18
 
-      # -----------------------------
-      # 依存インストール（直下の package.json）
-      # -----------------------------
       - name: Install dependencies
         run: npm install
         working-directory: .
 
-      # -----------------------------
-      # アイコン生成（npx）
-      # -----------------------------
       - name: Generate Tauri icons
         run: npx tauri icon ./icon.png
         working-directory: .
 
-      # -----------------------------
-      # ビルド（npx）
-      # -----------------------------
       - name: Build Tauri app
-        run: npx tauri build
+        run: npx tauri build   # ← npm run ではなく npx にする
         working-directory: .
 
-      # -----------------------------
-      # アーティファクトまとめ
-      # -----------------------------
       - name: Upload bundle
         uses: actions/upload-artifact@v4
         with:

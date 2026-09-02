@@ -1,3 +1,10 @@
+name: Build Tauri App
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
 jobs:
   tauri-build:
     strategy:
@@ -18,25 +25,67 @@ jobs:
         with:
           node-version: 18
 
+      # -----------------------------
+      # npm install は package.json のある場所で実行
+      # -----------------------------
       - name: Install frontend dependencies
         run: npm install
-        working-directory: src   # ← package.json のある場所に合わせる
+        working-directory: ./src   # ← package.json の場所に合わせる
 
       - name: Install Tauri CLI
         run: npm install --save-dev @tauri-apps/cli
-        working-directory: src   # ← 同じ場所
+        working-directory: ./src   # ← 同じ場所
 
       - name: Generate Tauri icons
         run: npx tauri icon ./icon.png
-        working-directory: src   # ← 同じ場所
+        working-directory: ./src   # ← 同じ場所
 
       - name: Build Tauri app
         run: npm run tauri build
-        working-directory: src   # ← 同じ場所
+        working-directory: ./src   # ← 同じ場所
 
-      - name: Upload bundle
+      # -----------------------------
+      # アーティファクトまとめ
+      # -----------------------------
+      - name: Upload bundle (all files)
         uses: actions/upload-artifact@v4
         with:
           name: tauri-${{ matrix.platform }}-bundle
           path: src-tauri/target/release/bundle/
 
+      # Windows 専用
+      - name: Upload Windows MSI
+        if: runner.os == 'Windows'
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-msi
+          path: src-tauri/target/release/bundle/msi/*.msi
+
+      - name: Upload Windows NSIS
+        if: runner.os == 'Windows'
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-nsis
+          path: src-tauri/target/release/bundle/nsis/*.exe
+
+      - name: Upload Windows ZIP
+        if: runner.os == 'Windows'
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-zip
+          path: src-tauri/target/release/bundle/zip/*.zip
+
+      # macOS 専用
+      - name: Upload macOS DMG
+        if: runner.os == 'macOS'
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-dmg
+          path: src-tauri/target/release/bundle/dmg/*.dmg
+
+      - name: Upload macOS APP
+        if: runner.os == 'macOS'
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-app
+          path: src-tauri/target/release/bundle/app/*.app

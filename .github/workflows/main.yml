@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 24
 
       - name: Install dependencies
         run: npm install
@@ -34,7 +34,7 @@ jobs:
         working-directory: .
 
       - name: Build Tauri app
-        run: npx tauri build   # ← npm run ではなく npx にする
+        run: npx tauri build
         working-directory: .
 
       - name: Upload bundle

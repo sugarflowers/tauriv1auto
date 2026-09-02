@@ -42,3 +42,40 @@ jobs:
         with:
           name: tauri-${{ matrix.platform }}-bundle
           path: src-tauri/target/release/bundle/
+
+      # -----------------------------
+      # ② Windows の種類別アップロード
+      # -----------------------------
+      - name: Upload Windows MSI
+        if: runner.os == 'Windows'
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-msi
+          path: src-tauri/target/release/bundle/msi/*.msi
+
+      - name: Upload Windows NSIS
+        if: runner.os == 'Windows'
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-nsis
+          path: src-tauri/target/release/bundle/nsis/*.exe
+
+      - name: Upload Windows ZIP
+        if: runner.os == 'Windows'
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-zip
+          path: src-tauri/target/release/bundle/zip/*.zip
+
+      # -----------------------------
+      # ③ macOS の種類別アップロード
+      # -----------------------------
+      - name: Upload macOS DMG
+        if: runner.os == 'macOS'
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-dmg
+          path: src-tauri/target/release/bundle/dmg/*.dmg
+
+      - name: Upload macOS APP
+        if: runner.os == 'macOS'

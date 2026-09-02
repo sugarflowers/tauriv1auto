@@ -37,12 +37,6 @@ jobs:
         run: npx tauri build
         working-directory: .
 
-      - name: Upload bundle
-        uses: actions/upload-artifact@v4
-        with:
-          name: tauri-${{ matrix.platform }}-bundle
-          path: src-tauri/target/release/bundle/
-
       # -----------------------------
       # ② Windows の種類別アップロード
       # -----------------------------

@@ -1,4 +1,4 @@
-# 📄 README 用：説明＋免責事項（日本語 / 英語）
+# 📄 README 
 
 
 ## 🎮 このレポジトリについて / About This Repository

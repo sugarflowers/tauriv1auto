@@ -58,14 +58,14 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           cd src-tauri/target/release
-          powershell Compress-Archive -Path *.exe -DestinationPath app_exe.zip
-
+          powershell Compress-Archive -Path *.exe -DestinationPath portable-exe.zip
+      
       - name: Upload Windows ZIP
         if: runner.os == 'Windows'
         uses: actions/upload-artifact@v4
         with:
           name: portable-exe
-          path: src-tauri/target/release/app_exe.zip
+          path: src-tauri/target/release/portable-exe.zip
 
       # -----------------------------
       # ③ macOS の種類別アップロード

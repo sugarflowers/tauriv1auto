@@ -54,12 +54,17 @@ jobs:
           name: windows-nsis
           path: src-tauri/target/release/bundle/nsis/*.exe
 
+      - name: Zip NSIS exe
+        run: |
+          cd src-tauri/target/release/bundle/nsis
+          powershell Compress-Archive -Path *.exe -DestinationPath app_exe.zip
+
       - name: Upload Windows ZIP
         if: runner.os == 'Windows'
         uses: actions/upload-artifact@v4
         with:
           name: windows-zip
-          path: src-tauri/target/release/bundle/zip/*.zip
+          path: src-tauri/target/release/bundle/*.zip
 
       # -----------------------------
       # ③ macOS の種類別アップロード

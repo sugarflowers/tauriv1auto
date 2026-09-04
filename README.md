@@ -1,100 +1,110 @@
-# 📄 README 
+# README
+
+## このテンプレートについて / About This Template
+
+このテンプレートは、RPGツクール MZ の HTML5 出力を Tauri v1 でラップし、 Windows と macOS 用のネイティブアプリを自動ビルドするためのプロジェクトです。 ZIP をダウンロードして展開し、GitHub Desktop で管理することで、 誰でも簡単にクロスプラットフォームの実行ファイルを生成できます。
+
+This template wraps the HTML5 export of RPG Maker MZ using Tauri v1, allowing automatic builds of native applications for Windows and macOS. By downloading the ZIP and managing it with GitHub Desktop, anyone can easily generate cross‑platform executables.
+
+## 必要なもの / Requirements
+
+- GitHub アカウント
+- GitHub Desktop
+- RPGツクール MZ（HTML5 出力が必要）
+- インターネット接続（GitHub Actions によるビルドのため）
 
 
-## 🎮 このレポジトリについて / About This Repository
-このレポジトリは **RPGツクール MZ の HTML5 出力を Tauri v1 でラップし、  
-Windows / macOS 用のネイティブアプリを自動ビルドするためのテンプレート**です。
 
-GitHub Desktop を使うことで、  
-ツクール MZ の HTML5 コンテンツを `src/` にコピーして push するだけで、  
-GitHub Actions が自動的にアプリを生成します。
+- GitHub account
+- GitHub Desktop
+- RPG Maker MZ (HTML5 export required)
+- Internet connection (for GitHub Actions builds)
 
-This repository is a **template for wrapping RPG Maker MZ HTML5 export with Tauri v1**,  
-allowing you to automatically build native applications for **Windows and macOS**.
 
-By using GitHub Desktop, you can simply copy your RPG Maker MZ HTML5 output into the `src/` folder and push the changes.  
-GitHub Actions will automatically build the application for you.
 
----
+## GitHub への登録 / Creating a GitHub Account
 
-## 🧩 使い方（初心者向け） / How to Use (Beginner Friendly) 
-1. GitHub Desktop をインストールしてログインする  
-2. このレポジトリを Clone する  
-3. RPGツクール MZ でゲームを HTML5 書き出しする  
-4. 出力されたファイル一式を `src/` フォルダにコピーする  
-5. GitHub Desktop で Commit → Push  
-6. GitHub Actions が自動でビルドし、  
-   - Windows：`exe / msi / nsis`  
-   - macOS：`.app / .dmg`  
-   が artifact として生成されます
+GitHub を利用するためにはアカウントが必要です。 公式サイトでメールアドレスを登録し、指示に従ってアカウントを作成してください。
 
-1. Install GitHub Desktop and log in  
-2. Clone this repository  
-3. Export your RPG Maker MZ project as **HTML5**  
-4. Copy all exported files into the `src/` folder  
-5. Commit and Push using GitHub Desktop  
-6. GitHub Actions will automatically build:  
-   - Windows: `exe / msi / nsis`  
-   - macOS: `.app / .dmg`  
-   These files will appear as downloadable artifacts.
+To use GitHub, you need an account. Visit the official website, register your email address, and follow the instructions to create an account.
 
----
+## GitHub Desktop の入手 / Downloading GitHub Desktop
 
-## 🔄 コンテンツ更新時 / When Updating Your Game 
-ゲーム内容を更新した場合は、  
-HTML5 書き出し → `src/` に上書きコピー → Commit → Push  
-とするだけで、**変更分だけ** GitHub にアップロードされます。
+GitHub Desktop は GitHub の公式クライアントで、 ファイルの変更管理やアップロードを簡単に行うことができます。 公式サイトからダウンロードしてインストールしてください。
 
-When you update your game,  
-export HTML5 again → overwrite the `src/` folder → Commit → Push.  
-GitHub will upload **only the changed files**, making updates efficient.
+GitHub Desktop is the official GitHub client, making it easy to manage and upload your project files. Download and install it from the official website.
 
----
+## GitHub Desktop の基本操作 / Basic Usage of GitHub Desktop
 
-## 🖼 カスタマイズ / Customization 
-以下の項目を自由に変更できます：
+GitHub Desktop を起動し、 「Add existing repository」から ZIP を展開したフォルダを選択します。 ファイルを追加・変更したら、画面下部で Commit を行い、 その後 Push することで GitHub にアップロードされます。
 
-- ウィンドウサイズの調整  
-- ウィンドウタイトルの変更  
-- アプリアイコン（Windows / macOS）の変更  
-- `tauri.conf.json` の設定  
-- HTML5 側の画面サイズ調整  
+Open GitHub Desktop and select “Add existing repository,” then choose the folder extracted from the ZIP. When you add or modify files, commit the changes at the bottom of the window, and push them to upload the updates to GitHub.
 
-You can freely customize:
+## ZIP の使い方 / How to Use the ZIP Package
 
-- Window size  
-- Window title  
-- Application icons (Windows / macOS)  
-- `tauri.conf.json` configuration  
-- HTML5 canvas / screen size adjustments  
+ZIP を展開し、GitHub Desktop に読み込ませます。 RPGツクール MZ で HTML5 出力を行い、生成されたファイル一式を `src/` にコピーします。 Commit → Push を行うと、GitHub Actions が自動的にビルドを開始します。
 
----
+Extract the ZIP and load it into GitHub Desktop. Export your RPG Maker MZ project as HTML5 and copy all generated files into the `src/` folder. Commit and push the changes, and GitHub Actions will automatically start building.
 
-## ⚠️ 免責事項 / Disclaimer 
-このレポジトリはテンプレートとして提供されるものであり、以下について保証はありません：
+## コンテンツ更新時 / Updating Your Game
 
-- このテンプレートを利用したことによる **いかなる問題・損害についても責任は負いません**  
-- RPGツクール MZ や Tauri の **バージョン変更により動作しなくなる可能性があります**  
-- GitHub Actions の仕様変更により **ビルドが失敗する場合があります**  
-- OS のアップデートにより **生成されたアプリが動作しなくなる可能性があります**
+ゲーム内容を更新した場合は、再度 HTML5 出力を行い、 `src/` に上書きコピーして Commit → Push するだけで構いません。 GitHub は変更されたファイルだけをアップロードします。
 
-問題が発生した場合や動作しなくなった場合は、  
-**Issue で連絡をいただけると助かります。**
+When you update your game, export HTML5 again, overwrite the `src/` folder, and commit → push. GitHub will upload only the modified files.
 
-This repository is provided as a template, and the following are **not guaranteed**:
+## 修正方法（画面サイズ・タイトル・アイコン） / How to Modify Window Size, Title, and Icons
 
-- I am **not responsible for any issues or damages** caused by using this template  
-- Future updates to RPG Maker MZ or Tauri may cause the project to stop working  
-- GitHub Actions changes may cause builds to fail  
-- OS updates may prevent the generated applications from running
+### 画面サイズの変更 / Changing Window Size
 
-If you encounter problems or the project stops working,  
-please feel free to contact me through **GitHub Issues**.
+json
 
----
+```
+"window": {
+  "width": 1280,
+  "height": 720,
+  "resizable": true
+}
+```
 
-## 📬 お問い合わせ / Contact
+この設定はアプリのウィンドウサイズを指定します。 ゲーム画面に合わせて `width` と `height` を調整してください。 `resizable` を `false` にすると、ユーザーによるサイズ変更を禁止できます。
+
+This configuration defines the application window size. Adjust `width` and `height` to match your game’s resolution. Setting `resizable` to `false` prevents users from resizing the window.
+
+### ウィンドウタイトルの変更 / Changing Window Title
+
+json
+
+```
+"package": {
+  "productName": "Your Game Title"
+}
+```
+
+`productName` を変更すると、アプリのウィンドウタイトルが変わります。 Windows と macOS の両方でこのタイトルが表示されます。
+
+Changing `productName` updates the window title of the application. This title appears on both Windows and macOS.
+
+### アイコンの変更 / Changing Application Icons
+
+プロジェクト直下の `icon.png` を差し替えてください。 GitHub Actions が自動で Windows / macOS 用のアイコンを生成します。
+
+Replace the `icon.png` file in the project root. GitHub Actions will automatically generate icons for Windows and macOS.
+
+
+
+## 免責事項 / Disclaimer
+
+このテンプレートは無保証で提供されます。 利用による問題・損害、ツクール MZ や Tauri のバージョン変更、 GitHub Actions や OS の更新による動作不良について責任は負いません。 問題が発生した場合は Issue から連絡をいただけると助かります。
+
+This template is provided without warranty. I am not responsible for issues or damages caused by its use, nor for incompatibility due to updates in RPG Maker MZ, Tauri, GitHub Actions, or operating systems. If problems occur, please contact me through GitHub Issues.
+
+## お問い合わせ / Contact
+
 不具合報告や改善提案は GitHub の Issues からお願いします。
 
 For bug reports or suggestions, please use the GitHub Issues page.
+
+
+
+
 

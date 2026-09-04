@@ -13,7 +13,7 @@ This template wraps the HTML5 export of RPG Maker MZ using Tauri v1, allowing au
 - RPGツクール MZ（HTML5 出力が必要）
 - インターネット接続（GitHub Actions によるビルドのため）
 
-
+<br>
 
 - GitHub account
 - GitHub Desktop
@@ -58,7 +58,7 @@ When you update your game, export HTML5 again, overwrite the `src/` folder, and 
 
 json
 
-```
+```json
 "window": {
   "width": 1280,
   "height": 720,
@@ -74,7 +74,7 @@ This configuration defines the application window size. Adjust `width` and `heig
 
 json
 
-```
+```json
 "package": {
   "productName": "Your Game Title"
 }

@@ -2,8 +2,9 @@ name: 'publish'
 
 on:
   push:
-    branches: 
+    branches:
       - release
+    pull_request:
 
 jobs:
   tauri-build:

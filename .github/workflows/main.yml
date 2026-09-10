@@ -106,21 +106,3 @@ jobs:
           name: linux-appimage
           path: src-tauri/target/release/bundle/appimage/*.AppImage
 
-
-      # -----------------------------
-      # Ubuntu ZIP (AppImage + icon)
-      # -----------------------------
-      - name: Create Ubuntu ZIP
-        if: matrix.platform == 'ubuntu-22.04'
-        run: |
-          cd src-tauri/target/release
-          zip ubuntu-portable.zip \
-            bundle/appimage/*.AppImage \
-            ../../icon.png
-
-      - name: Upload Ubuntu ZIP
-        if: matrix.platform == 'ubuntu-22.04'
-        uses: actions/upload-artifact@v4
-        with:
-          name: ubuntu-portable
-          path: src-tauri/target/release/ubuntu-portable.zip

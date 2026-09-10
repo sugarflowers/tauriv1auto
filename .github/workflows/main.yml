@@ -68,7 +68,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: windows-portable
-          path: src-tauri/target/release/bundle/windows/*.exe
+          path: src-tauri/target/release/*.exe
 
       # -----------------------------
       # macOS

@@ -19,5 +19,11 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   if (window.__TAURI__) {
     greetMsgEl.textContent = "Hello, Tauri!";
+    const appWindow = window.__TAURI__.window.appWindow;
+
+    appWindow.listen("tauri://resize", ({ payload }) => {
+      const {width, height} = payload;
+      greetMsgEl.textContent = `${width}, ${height}`;
+    });
   }
 });

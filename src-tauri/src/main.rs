@@ -10,7 +10,7 @@ fn greet(name: &str) -> String {
 #[tauri::command]
 fn toggle_fullscreen(window: tauri::Window) {
     let is_full = window.is_fullscreen().unwrap_or(false);
-    window.set_fullscreen(is_full).unwrap();
+    window.set_fullscreen(!is_full).unwrap();
 }
 
 fn main() {

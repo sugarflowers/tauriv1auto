@@ -25,5 +25,12 @@ window.addEventListener("DOMContentLoaded", () => {
       const {width, height} = payload;
       greetMsgEl.textContent = `${width}, ${height}`;
     });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "F11") {
+        e.preventDefault();
+        window.__TAURI__.tauri.invoke("toggle_fullscreen");
+      }
+    });
   }
 });

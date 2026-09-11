@@ -17,4 +17,7 @@ window.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     greet();
   });
+  if (window.__TAURI__) {
+    greetMsgEl.textContent = "Hello, Tauri!";
+  }
 });

@@ -1,0 +1,20 @@
+name: Clear caches
+
+on:
+  workflow_dispatch:
+
+jobs:
+  tauri-build:
+    strategy:
+      matrix:
+        platform: ['windows-latest', 'macos-latest', 'ubuntu-22.04']
+
+    - name: new Cache
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cargo/registry
+          ~/.cargo/git
+          src-tauri/target
+        key: ${{ runner.os }}-cargo${{ hashFiles('src-tauri/Cargo.lock') }}-clear
+

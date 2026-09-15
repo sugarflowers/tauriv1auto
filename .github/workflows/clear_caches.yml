@@ -12,6 +12,14 @@ jobs:
     runs-on: ${{ matrix.platform }}
 
     steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Prepare cargo cache directories
+        run: cargo fetch
+
       - name: New Cache
         uses: actions/cache@v4
         with:

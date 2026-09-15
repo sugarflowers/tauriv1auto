@@ -23,7 +23,9 @@ jobs:
         run: cargo --version
 
       - name: Prepare cargo cache directories
-        run: cargo fetch
+        run: |
+          cd src-tauri
+          cargo fetch
 
       - name: New Cache
         uses: actions/cache@v4
